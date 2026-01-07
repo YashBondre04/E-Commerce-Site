@@ -1,14 +1,13 @@
-import React from 'react';
-import ProductCard from './ProductCard'; // Import the single card
 import { Badge } from "@/components/ui/badge";
+import ProductCard from './ProductCard'; // Import the single card
 
 const FeaturedSection = () => {
   // Mock Data
   const products = [
-     { id: 1, title: "RTX 4090", price: 1599, rating: 4.9, image: "https://unsplash.com/photos/black-and-white-box-fan-vWgoeEYdtIY" },
-     { id: 2, title: "Intel i9-14900K", price: 599, rating: 4.8, image: "/api/placeholder/200/200" },
-     { id: 3, title: "Samsung 990 Pro", price: 169, rating: 4.7, image: "/api/placeholder/200/200" },
-     { id: 4, title: "Corsair 32GB RAM", price: 129, rating: 4.6, image: "/api/placeholder/200/200" },
+     { id: 1, title: "RTX 4090", price: 1599, rating: 4.9, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIFVxU_ng9DRm7wgPxo5fPdgGfTmVjuH2mSA&s" },
+     { id: 2, title: "Intel i9-14900K", price: 599, rating: 4.8, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIFVxU_ng9DRm7wgPxo5fPdgGfTmVjuH2mSA&s" },
+     { id: 3, title: "Samsung 990 Pro", price: 169, rating: 4.7, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIFVxU_ng9DRm7wgPxo5fPdgGfTmVjuH2mSA&s" },
+     { id: 4, title: "Corsair 32GB RAM", price: 129, rating: 4.6, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIFVxU_ng9DRm7wgPxo5fPdgGfTmVjuH2mSA&s" },
   ];
 
   return (

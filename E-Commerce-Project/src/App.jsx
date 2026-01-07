@@ -1,10 +1,11 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Home } from "lucide-react";
+import { Route, Routes } from "react-router-dom";
+import ExplorePage from "./pages/ExplorePage";
+import FeaturedSection from "./pages/FeaturedSection";
+import Footer from "./pages/Footer";
 import Header from "./pages/Header";
 import Hero from "./pages/Hero";
-import Footer from "./pages/Footer";
-import FeaturedSection from "./pages/FeaturedSection";
-import ExplorePage from "./pages/ExplorePage";
+import PCBuilder from "./pages/PCBuilder";
 import RegisterPage from "./pages/RegisterPage";
 
 const App = () => {
@@ -16,13 +17,16 @@ const App = () => {
         <Routes>
             <Route path="/" element={
                 <>
+                <Home />
                 <Hero />
                 <FeaturedSection />
+
                 </>
             } 
             />
             <Route path="/explore" element={<ExplorePage />} />
             <Route path="/register" element={ <RegisterPage />} />
+            <Route path="/pcbuilder" element={ <PCBuilder />} />
         </Routes>
         <Footer />
         </>

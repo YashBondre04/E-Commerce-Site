@@ -1,12 +1,17 @@
-import * as React from "react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
+
+const slides = ['Computer.jpg',
+  'Cabinet.jpg',
+  'Gpu.jpg',
+  'Mouse.jpg',
+  'Speaker.jpg'];
 
 const Hero = () => {
   return (
@@ -18,6 +23,7 @@ const Hero = () => {
           loop: true,
           align: "center", 
         }}
+
         // 2. CAROUSEL BG: 
         // - Ideally, put images in the 'public' folder and reference them like '/Image.jpg'
         // - Added 'border-border' so it has a nice outline
@@ -33,12 +39,13 @@ const Hero = () => {
                    - backdrop-blur: Frosted glass effect
                    - border-border: Theme border color
                 */}
-                <Card className="h-[400px] w-[800px] justify-center border border-border shadow-2xl bg-card/95 backdrop-blur-sm">
-                  <CardContent className="flex h-full items-center justify-center p-6">
-                    {/* text-foreground handles dark/light text switch */}
-                    <span className="text-4xl font-semibold text-foreground">
-                      Slide {index + 1}
-                    </span>
+                <Card className="h-[400px] w-[800px] justify-center border border-border shadow-2xl bg-card/95 backdrop-blur-sm p-0">
+                  <CardContent className="flex h-full items-center justify-center px-0 py-0">
+                    <img
+                      src={slides[index]}
+                      alt={`Slide ${index + 1}`}
+                      className="h-full w-full object-cover rounded-md"
+                    />
                   </CardContent>
                 </Card>
                 

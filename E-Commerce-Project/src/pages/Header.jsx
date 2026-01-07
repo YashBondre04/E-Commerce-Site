@@ -104,7 +104,8 @@ const Header = () => {
 
               {/* --- DROPDOWN 2: PERIPHERALS --- */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground">
+                <NavigationMenuTrigger 
+                className="bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground">
                   Peripherals
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-popover border-border">
@@ -123,11 +124,15 @@ const Header = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <a href="/" className={cn(navigationMenuTriggerStyle(), "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground")}>
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to="/PCBuilder" 
+                    className={cn(navigationMenuTriggerStyle(), "bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground")}
+                  >
                   PC Builder
-                </a>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
-
             </NavigationMenuList>
           </NavigationMenu>
         </div>
