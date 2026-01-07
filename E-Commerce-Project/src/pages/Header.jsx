@@ -1,7 +1,6 @@
-import React from 'react';
-import { Search, ShoppingCart, User, Heart } from 'lucide-react';
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ModeToggle } from '@/components/ui/mode-toggle';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,17 +10,19 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils"; 
-import { Sheet,
-  SheetTrigger,
-  SheetClose,
+import {
+  Sheet,
   SheetContent,
-  SheetHeader,
+  SheetDescription,
   SheetFooter,
+  SheetHeader,
   SheetTitle,
-  SheetDescription, } from '@/components/ui/sheet';
-import { ModeToggle } from '@/components/ui/mode-toggle';
-import {Link} from 'react-router-dom'
+  SheetTrigger
+} from '@/components/ui/sheet';
+import { cn } from "@/lib/utils";
+import { Heart, Search, ShoppingCart, User } from 'lucide-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -113,6 +114,9 @@ const Header = () => {
                     </ListItem>
                     <ListItem href="/shop/keyboards" title="Keyboards" className="flex flex-col">
                       Mechanical switches & custom caps.
+                    </ListItem>
+                    <ListItem href="/shop/keyboards" title="More!" className="flex flex-col w-full">
+                      Mice, Headsets, and Accessories.....
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>

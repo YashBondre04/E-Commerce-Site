@@ -1,12 +1,20 @@
-const { createScrollAreaScope } = require("@radix-ui/react-scroll-area");
-const { createSlice } = require("@reduxjs/toolkit");
+/* import { createSlice } from "@reduxjs/toolkit";
+import {initialState} from "../../constants/cartConstants";
 
+const initialState = {itemList: [], totalQuantity: 0, showCart: false};
 
 const cartSlice = createSlice({
     name: "cart",
+    initialState,
+    reducers: {
+
+    }
 });
 
-/*const { createSlice } = require("@reduxjs/toolkit");
+export const cartActions = cartSlice.actions;
+export default cartSlice.reducer;
+
+const { createSlice } = require("@reduxjs/toolkit");
 
 const cartSlice = createSlice({
   name: "cart",

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Cpu, Monitor, HardDrive, Gamepad2, ChevronLeft, SlidersHorizontal } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import ProductCard from './ProductCard';         // Your Grid Card
+import { ChevronLeft, Cpu, Gamepad2, HardDrive, Monitor, SlidersHorizontal } from 'lucide-react';
+import React, { useState } from 'react';
 import ProductListItem from '../components/ProductListItem';
+import ProductCard from './ProductCard'; // Your Grid Card
 // Your New List Item
 
 const ExplorePage = () => {
