@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// 1. Helper function to load cart from LocalStorage safely
+// 1. Load cart from LocalStorage safely (Persistence)
 const loadCartFromStorage = () => {
   try {
     const serializedState = localStorage.getItem("cart");
@@ -10,12 +10,9 @@ const loadCartFromStorage = () => {
   }
 };
 
-// 2. Initial State
 const initialState = {
-  items: loadCartFromStorage(), // Load saved items or empty array
-  showCart: false,
-  // Note: We don't store totalQuantity/Amount here to avoid sync errors.
-  // We calculate them on the fly using Selectors (see bottom).
+  items: loadCartFromStorage(), // The list of products
+  showCart: false,              // Is the side drawer open?
 };
 
 const cartSlice = createSlice({
@@ -27,71 +24,55 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       
-      // Default to 1 if quantity isn't provided
       const quantityToAdd = newItem.quantity || 1;
 
       if (!existingItem) {
+        // If new, push it to the array
         state.items.push({
           id: newItem.id,
-          title: newItem.title || newItem.name, // Handle varied naming
+          title: newItem.title || newItem.name,
           price: newItem.price,
-          image: newItem.image, // Important for display in Cart Drawer
+          image: newItem.image,
           quantity: quantityToAdd,
-          totalPrice: newItem.price * quantityToAdd,
         });
       } else {
+        // If exists, just update numbers
         existingItem.quantity += quantityToAdd;
-        existingItem.totalPrice += newItem.price * quantityToAdd;
       }
 
-      // Save to storage
+      // Save to storage immediately
       localStorage.setItem("cart", JSON.stringify(state.items));
     },
 
-    // ACTION: Remove Item Completely (Trash Can Icon)
+    // ACTION: Remove Item Completely
     removeItemFromCart(state, action) {
       const id = action.payload;
       state.items = state.items.filter((item) => item.id !== id);
       localStorage.setItem("cart", JSON.stringify(state.items));
     },
 
-    // ACTION: Decrease Quantity (Minus Button)
+    // ACTION: Decrease Quantity ("-" Button)
     decrementItem(state, action) {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
         if (existingItem.quantity === 1) {
-          // If 1, remove it
           state.items = state.items.filter((item) => item.id !== id);
         } else {
-          // Else, just decrease
           existingItem.quantity--;
-          existingItem.totalPrice -= existingItem.price;
         }
       }
       localStorage.setItem("cart", JSON.stringify(state.items));
     },
-
-    // ACTION: Toggle Cart Drawer Visibility
-    toggleCart(state) {
-      state.showCart = !state.showCart;
-    },
-    
-    // ACTION: Clear Cart (Checkout)
-    clearCart(state) {
-        state.items = [];
-        localStorage.removeItem("cart");
-    }
   },
 });
 
-// 3. Export Actions
-export const { addItemToCart, removeItemFromCart, decrementItem, toggleCart, clearCart } = cartSlice.actions;
+// Export Actions (Buttons trigger these)
+export const { addItemToCart, removeItemFromCart, decrementItem } = cartSlice.actions;
 
-// 4. Export Selectors (Calculate totals dynamically here)
+// Export Selectors (Components read these to get data)
 export const selectCartItems = (state) => state.cart.items;
-export const selectShowCart = (state) => state.cart.showCart;
 
 export const selectCartTotalAmount = (state) =>
   state.cart.items.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -99,5 +80,4 @@ export const selectCartTotalAmount = (state) =>
 export const selectCartTotalQuantity = (state) =>
   state.cart.items.reduce((total, item) => total + item.quantity, 0);
 
-// 5. Export Reducer
 export default cartSlice.reducer;

@@ -1,4 +1,3 @@
-import { Home } from "lucide-react";
 import { Route, Routes } from "react-router-dom";
 import ExplorePage from "./pages/ExplorePage";
 import FeaturedSection from "./pages/FeaturedSection";
@@ -17,10 +16,8 @@ const App = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                <Home />
                 <Hero />
                 <FeaturedSection />
-
                 </>
             } 
             />

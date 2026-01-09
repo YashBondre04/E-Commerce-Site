@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { Heart, Search, ShoppingCart, User } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CartContents from "@/components/ui/CartContent";
 
 const Header = () => {
   return (
@@ -157,10 +158,36 @@ const Header = () => {
           </Button>
           
           {/* CART: Uses Brand Color (Primary) for badge? Optional. */}
-          <Button variant="ghost" size="icon" className="relative text-foreground hover:text-foreground hover:bg-accent">
+          <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="relative text-foreground hover:text-accent-foreground hover:bg-accent border-border">
             <ShoppingCart className="h-5 w-5" />
             <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-primary ring-2 ring-background" />
           </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-full max-w-md bg-card border-border">
+             {/*<SheetHeader>
+              <SheetTitle className="text-foreground">Welcome Back!</SheetTitle>
+              <SheetDescription className="text-muted-foreground">
+                Please log in to access your account and manage your orders.
+              </SheetDescription>
+            </SheetHeader>
+            <div className="mt-4">
+              <Input type="email" placeholder="Email" className="mb-4 bg-muted border-input text-foreground" />
+              <Input type="password" placeholder="Password" className="mb-4 bg-muted border-input text-foreground" />
+              
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Log In</Button>
+              <Button variant="ghost" className="w-full mt-2 text-muted-foreground hover:text-foreground">Forgot Password?</Button>
+            </div>
+            <SheetFooter>
+              <Link to="/RegisterPage">
+              <Button variant="ghost" className="w-full mt-2 text-muted-foreground hover:text-foreground">Create an Account</Button>
+              </Link>
+            </SheetFooter>  */}
+            <CartContents />
+          </SheetContent>
+        </Sheet>
+          
         </div>
       </div>
 
@@ -177,7 +204,7 @@ const Header = () => {
               Account
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full max-w-md bg-card border-border">
+          <SheetContent side="right" className="w-full max-w-md bg-card border-border backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60">
             <SheetHeader>
               <SheetTitle className="text-foreground">Welcome Back!</SheetTitle>
               <SheetDescription className="text-muted-foreground">

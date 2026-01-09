@@ -4,7 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star } from "lucide-react";
 
-const ProductCard = ({ title, price, image, rating, sale }) => {
+// 1. Import Redux hooks and action
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from "@/features/cart/cartSlice";
+
+const ProductCard = ({ id, title, price, image, rating, sale }) => { // <--- Added 'id' prop
+  const dispatch = useDispatch();
+
+  // 2. Create the handler
+  const handleAddToCart = () => {
+    dispatch(addItemToCart({
+      id,
+      title,
+      price,
+      image,
+    }));
+  };
+
   return (
     <Card className="border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow h-full flex flex-col bg-white dark:bg-zinc-900">
       
@@ -37,7 +53,12 @@ const ProductCard = ({ title, price, image, rating, sale }) => {
         <span className="text-lg font-bold text-slate-900 dark:text-white">
           ${price}
         </span>
-        <Button size="sm" className="flex items-center gap-2 bg-slate-900 dark:bg-white dark:text-slate-900 dark:hover:bg-zinc-200">
+        {/* 3. Attach the onClick event */}
+        <Button 
+          size="sm" 
+          onClick={handleAddToCart}
+          className="flex items-center gap-2 bg-slate-900 dark:bg-white dark:text-slate-900 dark:hover:bg-zinc-200"
+        >
           <ShoppingCart className="h-4 w-4" />
           Add
         </Button>
