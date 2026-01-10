@@ -1,241 +1,281 @@
-# 🖥️ TechHub - E-Commerce PC Components Store
+# 🛒 TechHub - E-Commerce Site for PC Components
 
-A modern, full-featured e-commerce platform for PC components and peripherals built with React, featuring a custom PC builder, shopping cart functionality, and a sleek dark/light theme.
+A modern, full-featured e-commerce platform specializing in PC components and custom PC building.  Built with React, Tailwind CSS, and Shadcn UI, featuring a custom PC builder tool, shopping cart functionality, and a beautiful dark/light theme toggle. 
 
-🌐 **Live Demo:** [https://e-commerce-site-phi-liart.vercel.app](https://e-commerce-site-phi-liart.vercel.app)
+🌐 **[Live Demo](techhub-ecommerce.vercel.app`)**
+
+---
 
 ## ✨ Features
 
 ### 🛍️ Core Functionality
-- **Product Catalog** - Browse through various PC components with detailed cards
-- **Custom PC Builder** - Build your dream PC by selecting compatible components
-- **Shopping Cart** - Add items to cart with Redux state management
-- **Dark/Light Theme** - Seamless theme switching with system preference support
-- **Responsive Design** - Fully responsive layout for mobile, tablet, and desktop
+- **Product Catalog**:  Browse through gaming and workstation components
+- **Custom PC Builder**: Interactive tool to build and configure your dream PC
+- **Shopping Cart**: Redux-powered cart with add/remove functionality
+- **Search & Filter**: Find components quickly with category filters
+- **Theme Toggle**: Seamless dark/light mode switching
+- **Responsive Design**:  Optimized for desktop, tablet, and mobile
 
 ### 📦 Product Categories
-- **Workstation Components**
-  - Workstations & CPUs
-  - Office Monitors
-  - Enterprise Storage
-  - Business Laptops
-  - Office Peripherals
-  - Software
-
-- **Gaming Components**
-  - Graphics Cards (GPU)
-  - Gaming CPUs
-  - Gaming Monitors
-  - Headsets & Audio
-  - Cooling Systems
-  - Memory (RAM)
+- **Gaming Components**: Graphics Cards, CPUs, Monitors, Headsets, Cooling, Memory
+- **Workstation Components**: Professional CPUs, Office Monitors, Enterprise Storage, Business Laptops, Peripherals
 
 ### 🎨 UI/UX Features
-- Hero carousel with product showcases
+- Interactive hero carousel with product highlights
 - Featured products section
-- Product filtering and categorization
-- Interactive navigation menu
-- Smooth animations and transitions
-- Glassmorphism effects
+- Product cards with ratings and pricing
+- Sticky navigation header with glassmorphism effect
+- Animated transitions and hover effects
+- Toast notifications for cart actions
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend Framework
-- **React 19.2.0** - Modern React with latest features
-- **Vite 7.2.4** - Lightning-fast build tool and dev server
+- **React** `19.2.0` - UI library
+- **React Router DOM** `7.11.0` - Client-side routing
+- **Vite** `7.2.4` - Build tool and dev server
 
-### Styling
-- **Tailwind CSS 4.1.18** - Utility-first CSS framework
-- **Shadcn UI** - Beautiful, accessible component library
-- **Radix UI** - Headless UI components for accessibility
-- **Lucide React** - Modern icon library
+### State Management
+- **Redux Toolkit** `2.11.2` - State management
+- **React Redux** `9.2.0` - React bindings for Redux
 
-### State Management & Routing
-- **Redux Toolkit 2.11.2** - Predictable state management
-- **React Router DOM 7.11.0** - Client-side routing
-- **React Redux 9.2.0** - Official React bindings for Redux
+### Styling & UI
+- **Tailwind CSS** `4.1.18` - Utility-first CSS framework
+- **Shadcn UI** `3.6.2` - Re-usable component library
+- **Radix UI** - Accessible component primitives
+  - Navigation Menu, Dialog, Popover, Select, Scroll Area, Tooltip, Avatar, Checkbox, Label, Separator, Slot
+- **Lucide React** `0.562.0` - Icon library
+- **class-variance-authority** `0.7.1` - CVA for component variants
+- **clsx** `2.1.1` - Conditional classNames
+- **tailwind-merge** `3.4.0` - Merge Tailwind classes
 
 ### Additional Libraries
-- **Embla Carousel React** - Smooth carousel implementation
-- **class-variance-authority** - CVA for component variants
-- **clsx & tailwind-merge** - Conditional className utilities
+- **Embla Carousel React** `8.6.0` - Carousel component
+- **@fontsource-variable/inter** `5.2.8` - Inter font family
+
+### Development Tools
+- **ESLint** `9.39.1` - Linting
+- **@vitejs/plugin-react** `5.1.1` - React plugin for Vite
+- **tw-animate-css** `1.4.0` - Tailwind animations
+
+---
 
 ## 📁 Project Structure
 
 ```
-E-Commerce-Project/
-├── public/                  # Static assets
-│   ├── LogoDark.png
-│   ├── Computer.jpg
-│   ├── Cabinet.jpg
-│   ├── Gpu.jpg
-│   ├── Mouse.jpg
-│   └── Speaker.jpg
-├── src/
-│   ├── app/                # Redux store configuration
-│   ├── assets/             # Image and media assets
-│   ├── components/         # Reusable UI components
-│   │   └── ui/            # Shadcn UI components
-│   ├── context/           # React context providers
-│   ├── data/              # Mock data and constants
-│   ├── features/          # Redux slices
-│   │   └── cart/         # Shopping cart logic
-│   ├── lib/              # Utility functions
-│   ├── pages/            # Page components
-│   │   ├── Header.jsx
-│   │   ├── Hero.jsx
-│   │   ├── FeaturedSection.jsx
-│   │   ├── ProductCard.jsx
-│   │   ├── ExplorePage.jsx
-│   │   ├── PCBuilder.jsx
-│   │   ├── RegisterPage.jsx
-│   │   └── Footer.jsx
-│   ├── App.jsx           # Main app component with routes
-│   ├── main.jsx          # App entry point
-│   └── index.css         # Global styles
-├── components.json        # Shadcn UI configuration
-├── package.json
-└── vite.config.js
-
+E-Commerce-Site/
+├── E-Commerce-Project/
+│   ├── public/               # Static assets (images, logos)
+│   ├── src/
+│   │   ├── app/              # Redux store configuration
+│   │   ├── assets/           # Local assets
+│   │   ├── components/       # Reusable UI components
+│   │   │   └── ui/           # Shadcn UI components
+│   │   ├── context/          # React Context providers
+│   │   ├── data/             # Mock data and constants
+│   │   ├── features/         # Redux slices (e.g., cartSlice)
+│   │   ├── lib/              # Utility functions
+│   │   ├── pages/            # Page components
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Hero.jsx
+│   │   │   ├── FeaturedSection.jsx
+│   │   │   ├── ExplorePage.jsx
+│   │   │   ├── ProductCard.jsx
+│   │   │   ├── PCBuilder.jsx
+│   │   │   └── RegisterPage.jsx
+│   │   ├── App.jsx           # Main app component with routing
+│   │   ├── main.jsx          # Entry point
+│   │   └── index.css         # Global styles
+│   ├── components. json       # Shadcn UI configuration
+│   ├── vite.config.js        # Vite configuration
+│   ├── tailwind.config.js    # Tailwind configuration
+│   └── package.json          # Dependencies
+└── README.md
 ```
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn package manager
+- **Node.js** (v18 or higher recommended)
+- **npm** or **yarn**
 
 ### Installation
 
 1. **Clone the repository**
-```bash
-git clone https://github.com/YashBondre04/E-Commerce-Site.git
-cd E-Commerce-Site/E-Commerce-Project
-```
+   ```bash
+   git clone https://github.com/YashBondre04/E-Commerce-Site.git
+   cd E-Commerce-Site/E-Commerce-Project
+   ```
 
 2. **Install dependencies**
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 3. **Start the development server**
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:5173`
 
-The application will open at `http://localhost:5173`
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+5. **Preview production build**
+   ```bash
+   npm run preview
+   ```
 
 ### Available Scripts
 
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint for code quality
-```
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Build optimized production bundle |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint to check code quality |
+
+---
 
 ## 🎯 Key Features Implementation
 
-### Shopping Cart (Redux)
-The shopping cart is implemented using Redux Toolkit with the following features:
+### 🛒 Shopping Cart (Redux)
+The shopping cart is powered by Redux Toolkit with the following features:
 - Add items to cart
 - Remove items from cart
-- Update item quantities
-- Persistent cart state
+- Update quantities
+- Calculate totals
+- Persist cart state
 
-### PC Builder
-Custom PC builder allows users to:
-- Select components category by category
-- View compatibility information
-- See real-time price updates
-- Track build progress
+**Location**: `src/features/cart/cartSlice.js`
 
-### Theme System
-- System preference detection
-- Manual theme toggle
+### 🏗️ PC Builder Tool
+Interactive component selector that helps users build custom PCs:
+- Component compatibility checking
+- Real-time price calculation
+- Progress tracking (7 component slots)
+- Build summary with total cost
+
+**Location**: `src/pages/PCBuilder.jsx`
+
+### 🎨 Theme System
+Custom theme implementation with:
+- Light/Dark mode toggle
+- CSS variables for consistent theming
+- Automatic system preference detection
 - Persistent theme selection
-- Smooth theme transitions
+
+### 🧩 Component Categories
+Organized into two main categories:
+- **Gaming**: High-performance components for gaming rigs
+- **Workstation**:  Professional components for productivity
+
+---
+
+## 📱 Responsive Design
+
+The site is fully responsive with breakpoints:
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: > 1024px
+
+---
 
 ## 🎨 Design System
 
-### Color Scheme
-- **Light Mode**: Clean whites with charcoal accents
-- **Dark Mode**: Gunmetal background with white text
-- **Accent Colors**: Primary blue with muted secondary colors
+### Colors
+- Uses Tailwind CSS color palette
+- Custom theme colors via CSS variables
+- Dark mode optimized
+
+### Typography
+- Font Family: Inter (Variable)
+- Responsive font sizes
+- Consistent heading hierarchy
 
 ### Components
-- Cards with glassmorphism effects
-- Hover animations and transitions
-- Consistent spacing and typography
-- Accessible UI components from Radix UI
+All UI components are built with Shadcn UI and Radix UI primitives, ensuring: 
+- Accessibility (ARIA compliant)
+- Keyboard navigation
+- Screen reader support
 
-## 📱 Responsive Breakpoints
+---
 
-```css
-sm: 640px   /* Mobile landscape */
-md: 768px   /* Tablet */
-lg: 1024px  /* Desktop */
-xl: 1280px  /* Large desktop */
-2xl: 1536px /* Extra large screens */
-```
+## 🌐 Deployment
 
-## 🔧 Configuration Files
+The project is deployed on **Vercel** with automatic deployments from the main branch.
 
-- `vite.config.js` - Vite configuration
-- `tailwind.config.js` - Tailwind CSS configuration (if present)
-- `components.json` - Shadcn UI component configuration
-- `jsconfig.json` - JavaScript path aliases
-- `vercel.json` - Vercel deployment configuration
-
-## 🚢 Deployment
-
-The project is configured for deployment on Vercel with the included `vercel.json` configuration file.
+**Live URL**: [https://e-commerce-site-phi-liart.vercel.app](https://e-commerce-site-phi-liart.vercel.app)
 
 ### Deploy to Vercel
 
 1. Push your code to GitHub
-2. Import the project in Vercel
-3. Vercel will automatically detect Vite and deploy
+2. Import project in Vercel
+3. Configure build settings: 
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these steps:
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+---
+
 ## 📝 Future Enhancements
 
-- [ ] User authentication and registration
-- [ ] Backend API integration
-- [ ] Product search functionality
-- [ ] Product reviews and ratings
-- [ ] Wishlist feature
-- [ ] Order history and tracking
+- [ ] User authentication and profiles
 - [ ] Payment gateway integration
-- [ ] Admin dashboard
+- [ ] Order tracking system
+- [ ] Product reviews and ratings
+- [ ] Wishlist functionality
 - [ ] Email notifications
-- [ ] Live chat support
+- [ ] Admin dashboard
+- [ ] Backend API integration
+- [ ] Real-time inventory management
+- [ ] Advanced filtering and sorting
 
-## 📄 License
-
-This project is open source and available under the MIT License.
+---
 
 ## 👤 Author
 
 **Yash Bondre**
 - GitHub: [@YashBondre04](https://github.com/YashBondre04)
-
-## 🙏 Acknowledgments
-
-- [Shadcn UI](https://ui.shadcn.com/) - For the beautiful component library
-- [Radix UI](https://www.radix-ui.com/) - For accessible headless components
-- [Lucide Icons](https://lucide.dev/) - For the icon set
-- [Tailwind CSS](https://tailwindcss.com/) - For the utility-first CSS framework
+- Project Link: [https://github.com/YashBondre04/E-Commerce-Site](https://github.com/YashBondre04/E-Commerce-Site)
 
 ---
 
-⭐ **Star this repo if you find it helpful!**
+## 🙏 Acknowledgments
+
+- [Shadcn UI](https://ui.shadcn.com/) - Beautiful component library
+- [Radix UI](https://www.radix-ui.com/) - Accessible component primitives
+- [Lucide Icons](https://lucide.dev/) - Icon library
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Vercel](https://vercel.com/) - Deployment platform
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+<div align="center">
+  Made with ❤️ by Yash Bondre
+</div>
