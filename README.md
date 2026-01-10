@@ -2,7 +2,7 @@
 
 A modern, full-featured e-commerce platform specializing in PC components and custom PC building.  Built with React, Tailwind CSS, and Shadcn UI, featuring a custom PC builder tool, shopping cart functionality, and a beautiful dark/light theme toggle. 
 
-🌐 **[Live Demo](techhub-ecommerce.vercel.app`)**
+🌐 **[Live Demo](techhub-ecommerce.vercel.app)**
 
 ---
 
