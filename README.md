@@ -212,7 +212,7 @@ All UI components are built with Shadcn UI and Radix UI primitives, ensuring:
 
 The project is deployed on **Vercel** with automatic deployments from the main branch.
 
-**Live URL**: [https://e-commerce-site-phi-liart.vercel.app](https://e-commerce-site-phi-liart.vercel.app)
+**Live URL**: [https://e-commerce-site-phi-liart.vercel.app](https://techhub-ecommerce.vercel.app)
 
 ### Deploy to Vercel
 
